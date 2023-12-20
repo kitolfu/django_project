@@ -9,6 +9,9 @@ class Genre(models.Model):
         unique=True,
     )
 
+class Author(models.Model):
+    name = models.CharField(max_length=20, help_text='Введите имя автора')
+
 class Book(models.Model):
     """Типичный класс модели, производный от класса Model."""
 
@@ -24,6 +27,26 @@ class Book(models.Model):
         verbose_name='жанр',
         on_delete=models.PROTECT,
     )
+    author  = models.ForeignKey(
+        Author,
+        help_text='выберите автора',
+        verbose_name='author',
+        on_delete=models.PROTECT,
+    )
+    creation_date = models.DateField(
+        verbose_name='date',
+        on_delete=models.PROTECT,
+    )  
+    description = models.TextField(
+        verbose_name='description',
+        null=True,
+    )
+    pages_number = models.IntegerField(
+        verbose_name='pages',
+    )
+
+
+
     my_field_name = models.CharField(max_length=20, help_text='Введите описание поля')
     # … 
 
