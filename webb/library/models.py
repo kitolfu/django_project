@@ -13,13 +13,11 @@ class Genre(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=20, help_text='Введите имя автора')
+    
     def __str__(self):
         return self.name
 
 class Book(models.Model):
-    """Типичный класс модели, производный от класса Model."""
-
-    # Поля
     name = models.CharField(
         verbose_name = 'Название',
         max_length=25
@@ -52,14 +50,9 @@ class Book(models.Model):
         verbose_name='Страницы',
     )
 
-
-
-    my_field_name = models.CharField(max_length=20, help_text='Введите описание поля')
-    # … 
-
+    
     # Метаданные
     class Meta:
-        # ordering = ['-my_field_name']
         verbose_name = "Book"
 
 
