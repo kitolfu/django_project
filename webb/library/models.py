@@ -10,6 +10,8 @@ class Genre(models.Model):
         verbose_name='Жанр',
         unique=True,
     )
+    class Meta:
+        verbose_name = "Жанр"
 
 class Author(models.Model):
     name = models.CharField(max_length=20,
@@ -19,6 +21,10 @@ class Author(models.Model):
     
     def __str__(self):
         return self.name
+    
+
+    class Meta:
+        verbose_name = "Автор"
 
 class Book(models.Model):
     name = models.CharField(
@@ -60,9 +66,9 @@ class Book(models.Model):
     )
 
     
-    # Метаданные
     class Meta:
-        verbose_name = "Book"
+        verbose_name = "Книга"
+        verbose_name_plural = 'Книги'
         ordering = ['name', 'author', 'creation_date']
 
 
