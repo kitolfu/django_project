@@ -1,18 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from library.models import Book
-
-def books(request):
-    items = Book.objects.all()
-    context = {'books':items}
-    return render(request, 'index.html', context)
-
-def book(request, pk):
-    item = get_object_or_404(Book, pk=pk)
-    context = {'book':item}
-    return render(request, 'book.html', context)
+from library.models import Book, Author
 
 def index(request):
-    return HttpResponse(
-        'Ты <i>не можешь</i> получить правильные <b>ответы</b>,<br> '
-        'если у тебя нет правильных <s>вопросов</s> запросов.')
+    items = Book.objects.all()
+    context = {'books': items}
+    return render(request, 'books/index.html', context)
+
+def authors_list(request):
+    items = Author.objects.all()
+    context = {'authors': items}
+    return render(request, 'books/authors.html', context)

@@ -1,17 +1,25 @@
 from django.db import models
 from django.urls import reverse
 
+
+
 class Genre(models.Model):
     def __str__(self):
         return self.name
     name = models.CharField(
         max_length=20,
+
         help_text='Введите название жанра',
+
         verbose_name='Жанр',
+
         unique=True,
     )
+
     class Meta:
+
         verbose_name = "Жанр"
+        verbose_name_plural = 'Жанры'
 
 class Author(models.Model):
     name = models.CharField(max_length=20,
@@ -25,6 +33,7 @@ class Author(models.Model):
 
     class Meta:
         verbose_name = "Автор"
+        verbose_name_plural = 'Авторы'
 
 class Book(models.Model):
     name = models.CharField(
@@ -38,7 +47,6 @@ class Book(models.Model):
     )
     genre = models.ForeignKey(
         Genre,
-        help_text='Выберите жанр',
         related_name='books',
         verbose_name='Жанр',
         on_delete=models.PROTECT,
