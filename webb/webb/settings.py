@@ -39,7 +39,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'webb.urls'
 
-TEMPLATES_DIR = os.path.join(BASE_DIR, 'teamplates')
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 TEMPLATES = [
     {
