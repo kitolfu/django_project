@@ -13,7 +13,7 @@ class Genre(models.Model):
 
         verbose_name='Жанр',
 
-        unique=True,
+        unique=True
     )
 
     class Meta:
@@ -25,7 +25,16 @@ class Author(models.Model):
     name = models.CharField(max_length=20,
         verbose_name='Имя',                     
         help_text='Введите имя автора')
-    
+    born_date = models.DateField(
+        help_text = 'Введите дату',
+        verbos_name = 'Дата рожения')
+    book_type = models.CharField(
+        help_text = 'введите тип произведений автора',
+        verbos_name = 'Тип произведений')
+    additional_information = models.TextField(
+        help_text = 'введите дополнительную информацию об авторе',
+        verbos_name = 'дополнительная информация',
+        blank = True)
     
     def __str__(self):
         return self.name
