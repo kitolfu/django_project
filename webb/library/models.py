@@ -27,13 +27,14 @@ class Author(models.Model):
         help_text='Введите имя автора')
     born_date = models.DateField(
         help_text = 'Введите дату',
-        verbos_name = 'Дата рожения')
+        verbose_name = 'Дата рожения')
     book_type = models.CharField(
+        max_length=20,
         help_text = 'введите тип произведений автора',
-        verbos_name = 'Тип произведений')
+        verbose_name = 'Тип произведений')
     additional_information = models.TextField(
         help_text = 'введите дополнительную информацию об авторе',
-        verbos_name = 'дополнительная информация',
+        verbose_name = 'дополнительная информация',
         blank = True)
     
     def __str__(self):
@@ -45,6 +46,11 @@ class Author(models.Model):
         verbose_name_plural = 'Авторы'
 
 class Book(models.Model):
+    image = models.ImageField(
+        verbose_name = 'Картинка',
+        upload_to='librabry/',
+        blank=True
+    )
     name = models.CharField(
         verbose_name = 'Название',
         max_length=25,
