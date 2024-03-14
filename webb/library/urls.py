@@ -7,4 +7,5 @@ app_name = 'books'
 urlpatterns = [
     path('', views.index, name='index'), 
     path('autors/', views.authors_list,name='authors'),
+    path('books/<int:book_id>',views.book_detail, name='book_detail')
 ]

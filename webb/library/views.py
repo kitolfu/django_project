@@ -11,3 +11,8 @@ def authors_list(request):
     items = Author.objects.all()
     context = {'authors': items}
     return render(request, 'books/authors.html', context)
+
+def book_detail(request, book_id):
+    item = get_object_or_404(Book,pk=book_id)
+    context = {'book':item}
+    return render(request,'books/book_detail.html',context)

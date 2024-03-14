@@ -54,7 +54,7 @@ class Book(models.Model):
     name = models.CharField(
         verbose_name = 'Название',
         max_length=25,
-        help_text='Введите имя автора'
+        help_text='Введите название'
     )
     price = models.IntegerField(
         verbose_name='"Цена',
