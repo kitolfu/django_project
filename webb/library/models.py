@@ -2,48 +2,34 @@ from django.db import models
 from django.urls import reverse
 
 
-
-class Genre(models.Model):
-    def __str__(self):
-        return self.name
-    name = models.CharField(
-        max_length=20,
-
-        help_text='Введите название жанра',
-
-        verbose_name='Жанр',
-
-        unique=True
-    )
-
-    class Meta:
-
-        verbose_name = "Жанр"
-        verbose_name_plural = 'Жанры'
-
 class Author(models.Model):
     name = models.CharField(max_length=20,
         verbose_name='Имя',                     
-        help_text='Введите имя автора')
+        help_text='Введите имя автора'
+        )
     born_date = models.DateField(
         help_text = 'Введите дату',
-        verbose_name = 'Дата рожения')
+        verbose_name = 'Дата рожения'
+        )
     book_type = models.CharField(
         max_length=20,
         help_text = 'введите тип произведений автора',
-        verbose_name = 'Тип произведений')
+        verbose_name = 'Тип произведений'
+        )
     additional_information = models.TextField(
         help_text = 'введите дополнительную информацию об авторе',
         verbose_name = 'дополнительная информация',
-        blank = True)
+        blank = True
+        )
     
     def __str__(self):
         return self.name
     
 
     class Meta:
-        verbose_name = "Автор"
+        verbose_name = 'Автор'
         verbose_name_plural = 'Авторы'
+
 
 class Book(models.Model):
     image = models.ImageField(
@@ -57,7 +43,7 @@ class Book(models.Model):
         help_text='Введите название'
     )
     price = models.IntegerField(
-        verbose_name='"Цена',
+        verbose_name='Цена',
         help_text='Введите цену',
     )
     genre = models.ForeignKey(
@@ -90,9 +76,21 @@ class Book(models.Model):
 
     
     class Meta:
-        verbose_name = "Книга"
+        verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
         ordering = ['name', 'author', 'creation_date']
 
 
+class Genre(models.Model):
+    def __str__(self):
+        return self.name
+    name = models.CharField(
+        max_length=20,
+        help_text='Введите название жанра',
+        verbose_name='Жанр',
+        unique=True
+    )
 
+    class Meta:
+        verbose_name = 'Жанр'
+        verbose_name_plural = 'Жанры'
